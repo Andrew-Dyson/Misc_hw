@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Orders!</title>
+</head>
+<body>
+    <h1>Pizza Orders!</h1>
+    {% set counter = 0 %}
+    {% for order in order_list %}
+    {% set counter = loop.index -1 %}
+        {% set url = "http://localhost:4999/orders/" ~ counter %}
+        <p><a href={{url}}>{{order.customer_name}}'s order</a></p> 
+    {%endfor%}
+    <!-- <h1>Pizza Orders!</h1>
+    {% for order in order_list %}
+    <p>{{order.customer_name}} ordered {{ order.quantity }}x {{ order.size }}inch {{ order.pizza_name }} on {{ order.order_date
+         }}</p> 
+    {%endfor%} -->
+</body>
+</html>
